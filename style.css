@@ -1,0 +1,33 @@
+body,
+canvas,
+ul {
+  display: block;
+  margin: 0;
+  box-sizing: border-box;
+}
+ul, ol {
+  overflow: auto;
+  max-height: 400px;
+}
+.canvas-lines-conf {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffe;
+  width: 300px;
+}
+
+.canvas-lines-conf > * {
+  display: block;
+  margin: 0 0 10px;
+  padding: 0 30px;
+}
+
+.points-JSON {
+  height: 100px;
+  width: 100%;
+}
+[data-type="erase"]::before {
+  content: '-';
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <canvas></canvas>
+        <div class="canvas-lines-conf">
+            <label for="XSymmetry">
+                Use XSymmetry
+                <input id="XSymmetry" type="checkbox" checked="true"/>
+            </label>
+            <div>
+                <button id="clearPoints">
+                    Clear Points
+                </button>
+                <button id="uploadPoints">
+                    Upload Points
+                </button>
+                <button id="getLaidPoints">
+                    Download Laid JSON Points
+                </button>
+                <button id="getCanvasLine">
+                    Download canvas line
+                </button>
+            </div>
+            <textarea class="points-JSON" id="pointJSON"></textarea>
+            <ol id="points">
+                canvas.beginPath();
+            </ol>
+        </div>
+    </div>
+    <script src="./canvas-preset.js"></script>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
