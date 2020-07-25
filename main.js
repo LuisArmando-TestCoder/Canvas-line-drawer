@@ -137,11 +137,11 @@ function appendPointToPointsListElement({x, y}, index) {
             ${
                 lines.length ?
                 `
-                canvas.lineTo(<b>${x}</b>, <b>${y}</b>);
+                ctx.lineTo(<b>${x}</b>, <b>${y}</b>);
                 `
                 :
                 `
-                canvas.moveTo(<b>${x}</b>, <b>${y}</b>);
+                ctx.moveTo(<b>${x}</b>, <b>${y}</b>);
                 `
             }
             <button data-type="erase"></button>
