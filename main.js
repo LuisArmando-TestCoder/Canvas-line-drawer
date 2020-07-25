@@ -35,7 +35,7 @@ const getXSymmetricalPoint = () => ({
 });
 const canDrawFollowUp = () => mouse() && mouse().x < c.width;
 const canUseXSymmetry = () => document.getElementById('XSymmetry').checked && canDrawFollowUp();
-size(window.innerWidth - 200);
+size(window.innerWidth - 320);
 onMouseMove();
 draw(() => {
     clear('#001');
