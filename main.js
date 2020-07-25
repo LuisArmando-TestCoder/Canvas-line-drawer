@@ -3,8 +3,9 @@ import template from './template.js'
 const getLaidPointsElement = document.getElementById('getLaidPoints');
 const uploadPointsElement = document.getElementById('uploadPoints');
 const clearPointsElement = document.getElementById('clearPoints');
-const getCanvasLine = document.getElementById('getCanvasLine');
+const getCanvasLineElement = document.getElementById('getCanvasLine');
 const pointJSONElement = document.getElementById('pointJSON');
+const centerPointsElement = document.getElementById('centerPoints');
 const pointsListElement = document.getElementById('points');
 const lines = [{
     x: null,
@@ -34,7 +35,7 @@ const getXSymmetricalPoint = () => ({
 });
 const canDrawFollowUp = () => mouse() && mouse().x < c.width;
 const canUseXSymmetry = () => document.getElementById('XSymmetry').checked && canDrawFollowUp();
-size(window.innerWidth - 300);
+size(window.innerWidth - 200);
 onMouseMove();
 draw(() => {
     clear('#001');
@@ -69,11 +70,30 @@ c.addEventListener('click', () => {
     pointJSONElement.value = JSON.stringify(lines, null, 2);
 });
 
+centerPointsElement.addEventListener('click', () => {
+    const laidPoints = getLaidPoints(lines);
+    const last = {
+        x: 0,
+        y: 0
+    };
+
+    laidPoints.forEach(({x, y}) => {
+        if (x > last.x) last.x = x;
+        if (y > last.y) last.y = y;
+    });
+
+    laidPoints.forEach((vector, i) => {
+        vector.x += c.width / 2 - last.x / 2;
+        vector.y += c.height / 2 - last.y / 2;
+        lines[i] = vector;
+    });
+});
+
 getLaidPointsElement.addEventListener('click', () => {
     downloadJSText(JSON.stringify(getLaidPoints(lines), null, 2), 'laidPoints');
 });
 
-getCanvasLine.addEventListener('click', () => {
+getCanvasLineElement.addEventListener('click', () => {
     downloadJSText(pointsListElement.innerText, 'canvasLine');
 });
 

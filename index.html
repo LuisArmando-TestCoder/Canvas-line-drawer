@@ -10,28 +10,33 @@
     <div>
         <canvas></canvas>
         <div class="canvas-lines-conf">
-            <label for="XSymmetry">
-                Use XSymmetry
-                <input id="XSymmetry" type="checkbox" checked="true"/>
-            </label>
             <div>
                 <button id="clearPoints">
-                    Clear Points
+                    Clear
                 </button>
                 <button id="uploadPoints">
-                    Upload Points
+                    Figure JSON
                 </button>
-                <button id="getLaidPoints">
-                    Download Laid JSON Points
-                </button>
-                <button id="getCanvasLine">
-                    Download canvas line
+                <button id="centerPoints">
+                    Center
                 </button>
             </div>
             <textarea class="points-JSON" id="pointJSON"></textarea>
             <ol id="points">
                 canvas.beginPath();
             </ol>
+        </div>
+        <div class="canvas-lines-utils">
+            <label for="XSymmetry">
+                <input id="XSymmetry" type="checkbox" checked="true"/>
+                Use XSymmetry
+            </label>
+            <button id="getLaidPoints">
+                Download Laid JSON Points
+            </button>
+            <button id="getCanvasLine">
+                Download canvas line
+            </button>
         </div>
     </div>
     <script src="./canvas-preset.js"></script>
